@@ -2,6 +2,7 @@ package com.example.calculadora;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -410,6 +411,141 @@ public class MainActivity extends AppCompatActivity {
         hasOperation = true;
         hasComma = false;
         isResult = false;
+    }
+
+    public void BtnSinClick (View view) {
+        Switch sw = findViewById(R.id.switchRadDeg);
+        TextView textViewResultat = findViewById(R.id.textViewResultat);
+
+        if (sw.isChecked()) { //Degree
+            if (hasOperation) {
+                currentNumber = Math.sin(Math.PI/180 * currentNumber);
+            }
+
+            try {
+                double Number = Double.parseDouble(textViewResultat.getText().toString());
+                currentNumber = Math.sin(Math.PI/180 * Number);
+            } catch (NumberFormatException e) {
+                BtnACClick(view);
+                return;
+            }
+
+            textViewResultat.setText(String.format("%.4f", currentNumber));
+        }
+        else { //Radian
+            if (hasOperation) {
+                currentNumber = Math.sin(currentNumber);
+            }
+
+            try {
+                double Number = Double.parseDouble(textViewResultat.getText().toString());
+                currentNumber = Math.sin(Number);
+            } catch (NumberFormatException e) {
+                BtnACClick(view);
+                return;
+            }
+
+            textViewResultat.setText(String.format("%.4f", currentNumber));
+        }
+
+        hasSum = false;
+        hasMinus = false;
+        hasMultiplication = false;
+        hasDivision = false;
+        hasOperation = false;
+        hasComma = false;
+        isResult = true;
+        isStart = false;
+    }
+
+    public void BtnCosClick (View view) {
+        Switch sw = findViewById(R.id.switchRadDeg);
+        TextView textViewResultat = findViewById(R.id.textViewResultat);
+
+        if (sw.isChecked()) { //Degree
+            if (hasOperation) {
+                currentNumber = Math.cos(Math.PI/180 * currentNumber);
+            }
+
+            try {
+                double Number = Double.parseDouble(textViewResultat.getText().toString());
+                currentNumber = Math.cos(Math.PI/180 * Number);
+            } catch (NumberFormatException e) {
+                BtnACClick(view);
+                return;
+            }
+
+            textViewResultat.setText(String.format("%.4f", currentNumber));
+        }
+        else { //Radian
+            if (hasOperation) {
+                currentNumber = Math.cos(currentNumber);
+            }
+
+            try {
+                double Number = Double.parseDouble(textViewResultat.getText().toString());
+                currentNumber = Math.cos(Number);
+            } catch (NumberFormatException e) {
+                BtnACClick(view);
+                return;
+            }
+
+            textViewResultat.setText(String.format("%.4f", currentNumber));
+        }
+
+        hasSum = false;
+        hasMinus = false;
+        hasMultiplication = false;
+        hasDivision = false;
+        hasOperation = false;
+        hasComma = false;
+        isResult = true;
+        isStart = false;
+    }
+
+    public void BtnTanClick (View view) {
+        Switch sw = findViewById(R.id.switchRadDeg);
+        TextView textViewResultat = findViewById(R.id.textViewResultat);
+
+        if (sw.isChecked()) { //Degree
+            if (hasOperation) {
+                currentNumber = Math.tan(Math.PI/180 * currentNumber);
+            }
+
+            try {
+                double Number = Double.parseDouble(textViewResultat.getText().toString());
+                currentNumber = Math.tan(Math.PI/180 * Number);
+            } catch (NumberFormatException e) {
+                BtnACClick(view);
+                return;
+            }
+
+            textViewResultat.setText(String.format("%.4f", currentNumber));
+        }
+        else { //Radian
+            if (hasOperation) {
+                currentNumber = Math.tan(currentNumber);
+            }
+
+            try {
+                double Number = Double.parseDouble(textViewResultat.getText().toString());
+                currentNumber = Math.tan(Number);
+            } catch (NumberFormatException e) {
+                BtnACClick(view);
+                return;
+            }
+
+            textViewResultat.setText(String.format("%.4f", currentNumber));
+        }
+
+        hasSum = false;
+        hasMinus = false;
+        hasMultiplication = false;
+        hasDivision = false;
+        hasOperation = false;
+        hasComma = false;
+        isResult = true;
+        isStart = false;
     }
 
     public void BtnEqualClick(View view) {
